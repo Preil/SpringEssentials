@@ -3,16 +3,22 @@ package config;
 import entities.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
+
+import javax.sql.DataSource;
 
 /**
  * Ilya 17.04.2017.
  */
 
 @Configuration
+@Import(InfrastructureConfig.class)
 public class AppConfig {
     @Bean
-    public Game game(){
-        return new BaseballGame(redSox(), cubs());
+    public Game game(DataSource dataSource){
+        BaseballGame baseballGame = new BaseballGame(redSox(), cubs());
+        baseballGame.setDataSource(dataSource);
+        return baseballGame;
     }
 
     @Bean
