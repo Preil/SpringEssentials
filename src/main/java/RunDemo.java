@@ -1,5 +1,5 @@
-import config.AppConfig;
-import entities.Game;
+import com.oreilly.config.AppConfig;
+import com.oreilly.entities.Game;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 

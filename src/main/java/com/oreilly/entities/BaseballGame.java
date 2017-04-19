@@ -1,4 +1,4 @@
-package entities;
+package com.oreilly.entities;
 
 import javax.sql.DataSource;
 

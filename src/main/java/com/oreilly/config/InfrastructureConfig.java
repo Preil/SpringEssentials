@@ -1,4 +1,4 @@
-package config;
+package com.oreilly.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
