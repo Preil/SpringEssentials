@@ -8,6 +8,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
+import javax.annotation.Resource;
 import javax.sql.DataSource;
 
 /**
@@ -21,15 +22,18 @@ public class AppConfig {
     @Autowired
     private DataSource dataSource;
 
-    @Autowired @Qualifier("redSox")
-    private Team home;
+//    @Autowired @Qualifier("redSox")
+//    private Team home;
+
+    @Resource
+    private Team redSox;
 
     @Autowired @Qualifier("cubs")
     private Team away;
 
     @Bean
     public Game game(){
-        BaseballGame baseballGame = new BaseballGame(home, away);
+        BaseballGame baseballGame = new BaseballGame(redSox, away);
         baseballGame.setDataSource(dataSource);
         return baseballGame;
     }
